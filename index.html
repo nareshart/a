@@ -65,9 +65,13 @@
     <p>Iknew my creative limits with the user centric and profit making games. And i am the person who knows very well what the people like to play</p>
   </div>
   <h3>Game/Concept Art | Characters</h3>
+  <div class="row">
+  <div class="column">
+    <img src="Images/Art/Fantasy_Beauty.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+  </div>
 
   <div class="gallery">
-        <a href="Images/Art/Fantasy_Beauty.jpg" data-title="Concept Art"> <img src="Images/Art/Fantasy_Beauty_ico.jpg"> </a>
+        <a href="Images/Art/Fantasy_Beauty.jpg"data-lightbox="mygallery" data-title="Concept Art"> <img src="Images/Art/Fantasy_Beauty_ico.jpg"> </a>
         <a href="Images/Art/Red_Indian_Girl.jpg" data-lightbox="mygallery"> <img src="Images/Art/Red_Indian_Girl_ico.jpg"> </a>
         <a href="Images/Art/Paladin.jpg"data-lightbox="mygallery"> <img src="Images/Art/Paladin_ico.jpg"> </a>
         <a href="Images/Art/Goblin.jpg"data-lightbox="mygallery"> <img src="Images/Art/Goblin_ico.jpg"> </a>
@@ -379,22 +383,42 @@
 
 <!----------------- Header Nav ------------------>
 <script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
 }
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
 </script>
 <!--<!--  <h2>Sidebar</h2>
   <p>This sidebar is of full height (100%) and always shown.</p>
