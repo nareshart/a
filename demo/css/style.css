@@ -403,8 +403,8 @@ strong {
 .intro {
     width: 100%;
     margin: 0 auto;
-    /*background: url(head.jpg);*/
-    background: url(Demo/img/head.jpg);/*demo/img/head.jpg*/
+  /* background: url(../img/head.jpg);
+    background: url(Img/head.jpg);*/
     background-size: cover;
     margin-bottom: 0px;
     height: 100vh;
